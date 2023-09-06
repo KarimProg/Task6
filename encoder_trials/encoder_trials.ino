@@ -1,3 +1,12 @@
+/*
+ * File: encoder_trials.ino
+ * Author: Karim Abogharbia
+ * Description: This program interfaces with a motor's encoder to get the distance after being filtered
+ *              using a second order butterworth filter.
+ * Date: [6/9/2023]
+ */
+
+/* Macros */
 #define in1 13
 #define in2 9
 #define en1 10
@@ -15,6 +24,7 @@ float x[] = {0,0,0};
 float y[] = {0,0,0};
 
 void setup() {
+  // Begin serial communication at default rate(9600)
   Serial.begin(9600);
 
   // Pin setup
@@ -53,7 +63,7 @@ void loop() {
     Serial.println(2*y[0]);
   }
 
-
+  // Prints direction of motor
   if (direction)
     Serial.println("CL");
   else
@@ -71,6 +81,12 @@ void loop() {
   k++;
 }
 
+
+/* Function Definitions */
+
+/**
+ * @brief increments/decrements counter when signal from channel A is received.
+ */
 void encoderPinA(void) {
   if (digitalRead(chA) != digitalRead(chB)) {
     counter++;
@@ -81,6 +97,9 @@ void encoderPinA(void) {
   }
 }
 
+/**
+ * @brief increments/decrements counter when signal from channel B is received.
+ */
 void encoderPinB(void) {
   if (digitalRead(chA) == digitalRead(chB)) {
     counter++;
