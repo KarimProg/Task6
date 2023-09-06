@@ -58,9 +58,10 @@ void loop() {
 
   if(k % 3 ==0)
   {
-    Serial.print(2*x[0]);
-    Serial.print(" ");
-    Serial.println(2*y[0]);
+    Serial.print("Before: ");
+    Serial.print(x[0]);
+    Serial.print(" After: ");
+    Serial.println(y[0]);
   }
 
   // Prints direction of motor
