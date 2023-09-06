@@ -10,8 +10,8 @@
 #define in1 13
 #define in2 9
 #define en1 10
-#define chA 6
-#define chB 7
+#define chA 2
+#define chB 3
 
 // Pulses sensed
 long counter = 0;
